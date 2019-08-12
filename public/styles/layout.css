@@ -15,8 +15,13 @@ html {
  */
 
 body {
-  color: #4d4d4d;
-  background-color: #db7eb4;
+  color: #3a3a3a;
+  background-color: #f2f3e7;
   font-size: 24px;
   font-family: "Source Sans Pro", sans-serif;
+}
+
+main {
+  margin: 0 auto;
+  width: 90%;
 }

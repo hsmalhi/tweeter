@@ -1,5 +1,65 @@
 nav {
-  color: #f3f3f3;
+  position: fixed;
+  z-index: 1;
+  top: 0px;
+  height: 120px;
+  width: 100%;
+  padding: 1.5em;
+  color: #ffffff;
+  background-color: #303470;
   font-size: 36px;
   font-family: "Bungee", sans-serif;
+}
+
+nav .nav-prompt {
+  float: right;
+  font-size: 50%;
+  font-family: "Source Sans Pro", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nav-prompt > :nth-child(2){
+  color: #ff0000;
+}
+
+.bounce {
+  display: inline-block;
+  position: relative;
+  -moz-animation: bounce 1s infinite linear;
+  -o-animation: bounce 1s infinite linear;
+  -webkit-animation: bounce 1s infinite linear;
+  animation: bounce 2s infinite linear;
+}
+
+@-webkit-keyframes bounce {
+  0% { top: 0; }
+  50% { top: -0.2em; }
+  70% { top: -0.3em; }
+  100% { top: 0; }
+}
+@-moz-keyframes bounce {
+  0% { top: 0; }
+  50% { top: -0.2em; }
+  70% { top: -0.3em; }
+  100% { top: 0; }
+}
+@-o-keyframes bounce {
+  0% { top: 0; }
+  50% { top: -0.2em; }
+  70% { top: -0.3em; }
+  100% { top: 0; }
+}
+@-ms-keyframes bounce {
+  0% { top: 0; }
+  50% { top: -0.2em; }
+  70% { top: -0.3em; }
+  100% { top: 0; }
+}
+@keyframes bounce {
+  0% { top: 0; }
+  50% { top: -0.2em; }
+  70% { top: -0.3em; }
+  100% { top: 0; }
 }

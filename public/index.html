@@ -8,27 +8,59 @@
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
 
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Bungee|Source+Sans+Pro:300,300i,700,900i&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bungee|Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i&display=swap" rel="stylesheet">
 
     <!-- App CSS -->
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-
+    <style type="text/css">
+      @import url("/styles/main.css");
+    </style>
+    
     <!-- External JS -->
     <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script>
-
+    
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/app.js"></script>
+
+    <!-- Font Awesome JS-->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
   </head>
 
   <body>
 
     <!-- Top nav bar (fixed) -->
     <nav>
-      <span>tweeter <span style="font-size: 40%">v 0.1.0</span></span>
+      <span>tweeter</span>
+      <div class="nav-prompt">
+        <span> <b>Write</b> a new tweet</span>
+        <i class="fas fa-angle-double-down arrows bounce"></i>
+      </div>
     </nav>
+
+    <header>
+      <div>
+        <img src="/images/profile-hex.png"> 
+      </div>
+      <div>
+        <h2>Your <span>Name</span></h2>
+      </div>
+    </header>
 
     <!-- Page-specific (main) content here -->
     <main class="container">
+      <section class="new-tweet">
+        <br>
+        <form method="POST" action="/tweets/">
+          <textarea name="text" rows="1" placeholder="What are you humming about?"></textarea>
+          <button type="submit" value="Tweet">Tweet</button>
+          <span class="counter">140</span>
+        </form>
+      </section>
+
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Cursus in hac habitasse platea dictumst quisque sagittis purus sit. Vitae tortor condimentum lacinia quis vel eros donec ac odio. Mi bibendum neque egestas congue quisque. Felis donec et odio pellentesque diam volutpat commodo. Nibh praesent tristique magna sit amet purus gravida quis blandit. Neque convallis a cras semper auctor neque vitae tempus. Vitae turpis massa sed elementum tempus. Convallis aenean et tortor at risus viverra adipiscing at in. Quis vel eros donec ac odio tempor. Sem et tortor consequat id porta nibh venenatis cras sed. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Viverra maecenas accumsan lacus vel facilisis volutpat. Amet consectetur adipiscing elit pellentesque habitant morbi tristique senectus et. Elementum pulvinar etiam non quam lacus suspendisse faucibus interdum. Id cursus metus aliquam eleifend mi in nulla. Tellus integer feugiat scelerisque varius morbi enim.
+
+      Dignissim suspendisse in est ante in nibh mauris cursus. Non nisi est sit amet facilisis magna etiam tempor. Pretium aenean pharetra magna ac placerat vestibulum lectus. Nunc mi ipsum faucibus vitae aliquet. In ornare quam viverra orci. Libero justo laoreet sit amet. Et malesuada fames ac turpis. Nec nam aliquam sem et tortor consequat id porta nibh. Volutpat odio facilisis mauris sit amet massa. Vel elit scelerisque mauris pellentesque pulvinar. Dictum non consectetur a erat nam at lectus. Est pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat. Consectetur adipiscing elit ut aliquam purus sit. Sapien pellentesque habitant morbi tristique senectus et netus et. Sit amet purus gravida quis blandit turpis. Accumsan sit amet nulla facilisi morbi.
+
+      Quis ipsum suspendisse ultrices gravida dictum fusce ut placerat orci. Scelerisque purus semper eget duis. Sed nisi lacus sed viverra tellus in hac habitasse. Habitasse platea dictumst quisque sagittis purus sit amet volutpat consequat. Pellentesque elit eget gravida cum sociis natoque penatibus et magnis. Amet est placerat in egestas erat imperdiet sed euismod nisi. Dolor magna eget est lorem ipsum dolor. Tincidunt augue interdum velit euismod in. Et netus et malesuada fames ac turpis egestas. Odio morbi quis commodo odio aenean. Sapien et ligula ullamcorper malesuada proin libero. Mauris in aliquam sem fringilla ut. Quisque sagittis purus sit amet. Sit amet luctus venenatis lectus magna fringilla urna porttitor. Lectus quam id leo in vitae turpis massa sed. Lacus sed turpis tincidunt id. Volutpat consequat mauris nunc congue nisi. Ultrices in iaculis nunc sed augue lacus.
     </main>
 
   </body>

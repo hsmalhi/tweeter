@@ -3,8 +3,6 @@ article {
   padding: 15px;
   margin-top: 10px;
   margin-bottom: 40px;
-  display: flex;
-  flex-direction: column;
 }
 
 article:hover {
@@ -12,14 +10,12 @@ article:hover {
 }
 
 article:hover > header > .handle{
-  display: flex;
+  display: block;
 }
 
 article .tweet-body{
-  padding-top: 40px;
-  padding-bottom: 40px;
-  padding-left: 20px;
-  padding-right: 20px;
+  display: block;
+  padding: 40px 20px;
   color: #696969;
 }
 
@@ -30,14 +26,15 @@ article header{
   align-items: center;
 }
 
-article header div{
+article header .avatar-and-name {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 
 article header img{
-  width: 100px;
+  margin: 0.5em;
+  width: 70px;
   height: auto;
 }
 
@@ -52,14 +49,9 @@ article .handle {
 }
 
 article footer {
-  border-left: 0px;
-  border-right: 0px;
-  border-bottom: 0px;
+  border: 0;
   border-top: 5px solid #5a5a5a;
-  padding-top: 12px;
-  padding-bottom: 10px;
-  padding-left: 25px;
-  padding-right: 25px;
+  padding: 10px 25px;
   display: flex;
   justify-content: space-between;
   font-size: 75%;

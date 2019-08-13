@@ -1,7 +1,7 @@
 nav {
   position: fixed;
   z-index: 1;
-  top: 0px;
+  top: 0;
   height: 120px;
   width: 100%;
   padding: 1.5em;
@@ -11,9 +11,9 @@ nav {
   font-family: "Bungee", sans-serif;
 }
 
-.nav-prompt {
+nav > .nav-prompt {
   float: right;
-  font-size: 50%;
+  font-size: 0.5em;
   font-family: "Source Sans Pro", sans-serif;
   display: flex;
   flex-direction: column;
@@ -21,46 +21,18 @@ nav {
   color: #ffffff;
 }
 
-.nav-prompt > :nth-child(2){
+nav > .nav-prompt > .arrows {
   color: #ff0000;
 }
 
 .bounce {
   display: inline-block;
   position: relative;
-  -moz-animation: bounce 1s infinite linear;
-  -o-animation: bounce 1s infinite linear;
-  -webkit-animation: bounce 1s infinite linear;
-  animation: bounce 2s infinite linear;
+  animation: bounce 2s infinite ease-in-out;
 }
 
-@-webkit-keyframes bounce {
-  0% { top: 0; }
-  50% { top: -0.2em; }
-  70% { top: -0.3em; }
-  100% { top: 0; }
-}
-@-moz-keyframes bounce {
-  0% { top: 0; }
-  50% { top: -0.2em; }
-  70% { top: -0.3em; }
-  100% { top: 0; }
-}
-@-o-keyframes bounce {
-  0% { top: 0; }
-  50% { top: -0.2em; }
-  70% { top: -0.3em; }
-  100% { top: 0; }
-}
-@-ms-keyframes bounce {
-  0% { top: 0; }
-  50% { top: -0.2em; }
-  70% { top: -0.3em; }
-  100% { top: 0; }
-}
 @keyframes bounce {
   0% { top: 0; }
-  50% { top: -0.2em; }
-  70% { top: -0.3em; }
+  50% { top: -0.3em; }
   100% { top: 0; }
 }

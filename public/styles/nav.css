@@ -11,13 +11,14 @@ nav {
   font-family: "Bungee", sans-serif;
 }
 
-nav .nav-prompt {
+.nav-prompt {
   float: right;
   font-size: 50%;
   font-family: "Source Sans Pro", sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
+  color: #ffffff;
 }
 
 .nav-prompt > :nth-child(2){

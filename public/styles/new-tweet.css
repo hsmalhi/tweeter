@@ -20,7 +20,7 @@ textarea::placeholder {
   font-weight: 600;
 }
 
-button{
+.tweet-button{
   background-color: #303470;
   font-family: "Bungee", sans-serif;
   color: #ffffff;

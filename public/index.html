@@ -20,7 +20,8 @@
     
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/app.js"></script>
-
+    <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
+    
     <!-- Font Awesome JS-->
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
   </head>
@@ -50,7 +51,7 @@
       <section class="new-tweet">
         <br>
         <form method="POST" action="/tweets/">
-          <textarea name="text" rows="1" placeholder="What are you humming about?"></textarea>
+          <textarea id="new-tweet-text" name="text" rows="1" placeholder="What are you humming about?"></textarea>
           <input class="tweet-button" type="submit" value="Tweet"></input>
           <span class="counter">140</span>
         </form>

@@ -16,6 +16,8 @@
     "express": "^4.13.4",
     "md5": "^2.1.0",
     "path": "^0.12.7",
+    "require": "^2.4.20",
+    "requirejs": "^2.3.6",
     "serve-favicon": "^2.5.0"
   },
   "devDependencies": {

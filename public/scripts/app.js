@@ -83,8 +83,10 @@ $(document).ready(function() {
   $(".nav-write-new").on("click", function() {
     if ($(".new-tweet").is(":hidden")){
       $(".new-tweet").slideDown('fast');
+      $("#tweetText").focus();
     } else {
       $(".new-tweet").slideUp('fast');
+      $("#tweetText").blur();
     }
   });
 

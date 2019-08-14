@@ -80,6 +80,14 @@ $(document).ready(function() {
   
   loadtweets();
 
+  $(".nav-write-new").on("click", function() {
+    if ($(".new-tweet").is(":hidden")){
+      $(".new-tweet").slideDown('fast');
+    } else {
+      $(".new-tweet").slideUp('fast');
+    }
+  });
+
   $("#new-tweet-form").on("submit", function() {
     event.preventDefault();
 

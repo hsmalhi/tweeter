@@ -11,7 +11,8 @@ nav {
   font-family: "Bungee", sans-serif;
 }
 
-nav > .nav-prompt {
+nav > .nav-write-new {
+  padding: 0.2em;
   float: right;
   font-size: 0.5em;
   font-family: "Source Sans Pro", sans-serif;
@@ -21,8 +22,12 @@ nav > .nav-prompt {
   color: #ffffff;
 }
 
-nav > .nav-prompt > .arrows {
-  color: #ff0000;
+nav > .nav-write-new:hover {
+  cursor: pointer;
+}
+
+nav > .nav-write-new > .arrows {
+  color: #ff3300;
 }
 
 .bounce {

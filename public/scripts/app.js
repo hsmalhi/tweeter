@@ -11,12 +11,18 @@ const elapsed = function(date) {
     return Math.round(elapsedSeconds) + " seconds";
   } else if (elapsedSeconds / 60 < 60) {
     return Math.round(elapsedSeconds / 60) + " minutes";
-  } else if (elapsedSeconds / 3600 < 60) {
+  } else if (elapsedSeconds / 3600 < 24) {
     return Math.round(elapsedSeconds / 3600) + " hours";
   } else {
     return Math.round(elapsedSeconds / 86400) + " days";
   }
 };
+
+const escape =  function(str) {
+  let div = document.createElement('div');
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+}
 
 const createTweetElement = function(data) {
   let tweet = `
@@ -33,7 +39,7 @@ const createTweetElement = function(data) {
     </span>
     </header>
     <span class="tweet-body">
-      ${data.content.text}
+      ${escape(data.content.text)}
     </span>
     <footer>
       <span>
@@ -56,7 +62,7 @@ const renderTweets = function(data) {
   // takes return value and appends it to the tweets container
   let result = ``;
   for (const tweetData of data) {
-    $("#tweets-container").append(createTweetElement(tweetData));
+    $("#tweets-container").prepend(createTweetElement(tweetData));
   }
   return result;
 };
@@ -65,8 +71,10 @@ const renderTweets = function(data) {
 $(document).ready(function() {
   const loadtweets = function() {
     $.get("/tweets/").then(function(data) {
-      console.log("Successful AJAX GET call made!");
       renderTweets(data);
+    })
+    .fail(function() {
+      alert( "An error occurred while fetching tweets.");
     });
   };
   
@@ -84,9 +92,18 @@ $(document).ready(function() {
       alert("Your tweet is empty");
     } else {
       $.post(action, $(this).serialize()).then(function() {
-        console.log("Successful AJAX POST call made");
         $("#tweetText").val("");
+        $.get("/tweets/").then(function(data) {
+          renderTweets(data.splice(data.length-1));
+        })
+        .fail( function() {
+          alert( "An error occurred while fetching tweets.");
+          console.log(error.status + " " + error.statusText);
+        });
+      })
+      .fail(function() {
+        alert( "An error occurred while posting a tweet.");
       });
-    };
+    }
   });
 });

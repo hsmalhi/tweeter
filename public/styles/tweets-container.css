@@ -17,6 +17,7 @@ article .tweet-body{
   display: block;
   padding: 40px 20px;
   color: #696969;
+  word-wrap: break-word;
 }
 
 article header{

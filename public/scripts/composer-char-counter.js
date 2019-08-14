@@ -6,7 +6,7 @@ $(document).ready(function() {
     const $counter = $(this).siblings(".counter");
     const charsRemaining = 140 - tweetLength;
     $counter.text(charsRemaining);
-    if(charsRemaining >= 0) {
+    if (charsRemaining >= 0) {
       $counter.removeClass("invalid");
     } else {
       $counter.addClass("invalid");

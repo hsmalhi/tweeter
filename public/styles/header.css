@@ -1,7 +1,7 @@
 .top-header {
-  height: 400px;
+  height: 500px;
   width: 100%;
-  margin-top: 120px;
+  padding-top: 120px;
   background-color: #ffeb35;
   background-image: url("https://www.transparenttextures.com/patterns/cartographer.png");
   color: #ffffff;

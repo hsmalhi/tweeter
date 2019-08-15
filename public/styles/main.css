@@ -2,4 +2,5 @@
 @import "nav.css";
 @import "header.css";
 @import "new-tweet.css";
-@import "tweets-container.css"
+@import "tweets-container.css";
+@import "responsive.css"

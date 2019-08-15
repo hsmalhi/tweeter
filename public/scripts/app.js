@@ -4,8 +4,7 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-
- //Calculates and returns the elapsed time since the tweet was posted.
+//Calculates and returns the elapsed time since the tweet was posted.
 const elapsed = function(date) {
   //Get the elapsed time in seconds
   const elapsedSeconds = (new Date() - date) / 1000;
@@ -21,10 +20,23 @@ const elapsed = function(date) {
 };
 
 //Used to sanitize user input
-const escape =  function(str) {
-  let div = document.createElement('div');
+const escape = function(str) {
+  let div = document.createElement("div");
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
+};
+
+//Alters the nav background. This function is called upon scrolling or resizing the window. Initially thought that this would not need to be called upon resizing, but resizing was not affecting the nav bar to change colour if I was setting up the scroll handler.
+const alterNavBackground = function() {
+  if (window.matchMedia("(max-width: 1023px)").matches) {
+    if ($(window).scrollTop() >= 380) {
+      $("nav").css("background", "#303470");
+    } else {
+      $("nav").css("background", "transparent");
+    }
+  } else {
+    $("nav").css("background", "#303470");
+  }
 }
 
 //Creates a tweet element that can then later be prepended to the tweets-container section
@@ -75,23 +87,24 @@ const renderTweets = function(data) {
 //Loads initial tweets and sets up event handlers to respond to user input
 $(document).ready(function() {
   const loadtweets = function() {
-    $.get("/tweets/").then(function(data) {
-      renderTweets(data);
-    })
-    .fail(function() {
-      alert( "An error occurred while fetching tweets.");
-    });
+    $.get("/tweets/")
+      .then(function(data) {
+        renderTweets(data);
+      })
+      .fail(function() {
+        alert("An error occurred while fetching tweets.");
+      });
   };
-  
+
   loadtweets();
 
   //Top left button click handler
   $(".nav-write-new").on("click", function() {
-    if ($(".new-tweet").is(":hidden")){
-      $(".new-tweet").slideDown('fast');
+    if ($(".new-tweet").is(":hidden")) {
+      $(".new-tweet").slideDown("fast");
       $("#tweetText").focus();
     } else {
-      $(".new-tweet").slideUp('fast');
+      $(".new-tweet").slideUp("fast");
       $("#tweetText").blur();
     }
   });
@@ -105,27 +118,38 @@ $(document).ready(function() {
 
     if (tweetText.length > 140) {
       $(".tweet-error").text("Character limit exceeded!");
-      $(".tweet-error").slideDown('fast');
+      $(".tweet-error").slideDown("fast");
     } else if (tweetText === "") {
       $(".tweet-error").text("Your tweet is empty!");
-      $(".tweet-error").slideDown('fast');
+      $(".tweet-error").slideDown("fast");
     } else {
-      $.post(action, $(this).serialize()).then(function() {
-        $(".tweet-error").text("");
-        $(".tweet-error").slideUp(0);
-        $("#tweetText").val("");
-        $(".counter").text("140");
-        $.get("/tweets/").then(function(data) {
-          renderTweets(data.splice(data.length-1));
+      $.post(action, $(this).serialize())
+        .then(function() {
+          $(".tweet-error").text("");
+          $(".tweet-error").slideUp(0);
+          $("#tweetText").val("");
+          $(".counter").text("140");
+          $.get("/tweets/")
+            .then(function(data) {
+              renderTweets(data.splice(data.length - 1));
+            })
+            .fail(function() {
+              alert("An error occurred while fetching tweets.");
+              console.log(error.status + " " + error.statusText);
+            });
         })
-        .fail( function() {
-          alert( "An error occurred while fetching tweets.");
-          console.log(error.status + " " + error.statusText);
+        .fail(function() {
+          alert("An error occurred while posting a tweet.");
         });
-      })
-      .fail(function() {
-        alert( "An error occurred while posting a tweet.");
-      });
     }
+  });
+
+  //On mobile and tablets, the nav is transparent upon page load. As the user begins to scroll, the nav bar get a colour again. Desktops have a coloured nav bar by default and are not affected by the scroll.
+  $(window).on("scroll", function() {
+    alterNavBackground();
+  });
+
+  $(window).on("resize", function() {
+    alterNavBackground();
   });
 });

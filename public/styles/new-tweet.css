@@ -5,6 +5,10 @@
   color: #3a3a3a;
 }
 
+#tweetText:focus {
+  outline: none;
+}
+
 textarea {
   background: transparent;
   border: 0;

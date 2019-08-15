@@ -112,8 +112,9 @@ $(document).ready(function() {
     } else {
       $.post(action, $(this).serialize()).then(function() {
         $(".tweet-error").text("");
-        $(".tweet-error").slideUp('slow');
+        $(".tweet-error").slideUp(0);
         $("#tweetText").val("");
+        $(".counter").text("140");
         $.get("/tweets/").then(function(data) {
           renderTweets(data.splice(data.length-1));
         })

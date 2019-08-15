@@ -9,6 +9,7 @@ nav {
   background-color: #303470;
   font-size: 36px;
   font-family: "Bungee", sans-serif;
+  transition-duration: 0.2s;
 }
 
 nav > .nav-write-new {
@@ -20,6 +21,7 @@ nav > .nav-write-new {
   flex-direction: column;
   align-items: center;
   color: #ffffff;
+  display: flex;
 }
 
 nav > .nav-write-new:hover {
@@ -40,4 +42,21 @@ nav > .nav-write-new > .arrows {
   0% { top: 0; }
   50% { top: -0.3em; }
   100% { top: 0; }
+}
+
+.fa-chevron-circle-up {
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  padding: 0px;
+  margin: 5px;
+  font-size: 3em;
+  color: #303470;
+  background-color: #ffffff;
+  border-radius: 100px;
+  display: inline;
+}
+
+.fa-chevron-circle-up:hover {
+  cursor: pointer;
 }

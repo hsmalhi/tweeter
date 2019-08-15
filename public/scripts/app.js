@@ -37,7 +37,7 @@ const alterNavBackground = function() {
   } else {
     $("nav").css("background", "#303470");
   }
-}
+};
 
 //Creates a tweet element that can then later be prepended to the tweets-container section
 const createTweetElement = function(data) {
@@ -98,7 +98,7 @@ $(document).ready(function() {
 
   loadtweets();
 
-  //Top left button click handler
+  //Top right button click handler
   $(".nav-write-new").on("click", function() {
     if ($(".new-tweet").is(":hidden")) {
       $(".new-tweet").slideDown("fast");
@@ -107,6 +107,13 @@ $(document).ready(function() {
       $(".new-tweet").slideUp("fast");
       $("#tweetText").blur();
     }
+  });
+
+  // Bottom right button click handler
+  $(".fa-chevron-circle-up").on("click", function() {
+    $(".new-tweet").slideDown("fast");
+    $("#tweetText").focus();
+    //$("#tweetText").scrollIntoView();
   });
 
   //New tweet submission handler
@@ -147,6 +154,15 @@ $(document).ready(function() {
   //On mobile and tablets, the nav is transparent upon page load. As the user begins to scroll, the nav bar get a colour again. Desktops have a coloured nav bar by default and are not affected by the scroll.
   $(window).on("scroll", function() {
     alterNavBackground();
+
+    //This takes care of displaying either the write new tweet button that is in the nav bar or the bottom toggle button
+    if ($(window).scrollTop() >= 450) {
+      $(".nav-write-new").fadeOut(200);
+      $(".fa-chevron-circle-up").fadeIn(200);
+    } else {
+      $(".fa-chevron-circle-up").fadeOut(200);
+      $(".nav-write-new").fadeIn(200);
+    }
   });
 
   $(window).on("resize", function() {

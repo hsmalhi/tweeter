@@ -4,6 +4,8 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
+
+ //Calculates and returns the elapsed time since the tweet was posted.
 const elapsed = function(date) {
   //Get the elapsed time in seconds
   const elapsedSeconds = (new Date() - date) / 1000;
@@ -18,12 +20,14 @@ const elapsed = function(date) {
   }
 };
 
+//Used to sanitize user input
 const escape =  function(str) {
   let div = document.createElement('div');
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
 }
 
+//Creates a tweet element that can then later be prepended to the tweets-container section
 const createTweetElement = function(data) {
   let tweet = `
   <article>
@@ -56,6 +60,7 @@ const createTweetElement = function(data) {
   return tweet;
 };
 
+//Creates and then prepends tweets to the tweets-container section
 const renderTweets = function(data) {
   // loops through tweets
   // calls createTweetElement for each tweet
@@ -67,7 +72,7 @@ const renderTweets = function(data) {
   return result;
 };
 
-// Test / driver code (temporary)
+//Loads initial tweets and sets up event handlers to respond to user input
 $(document).ready(function() {
   const loadtweets = function() {
     $.get("/tweets/").then(function(data) {
@@ -80,6 +85,7 @@ $(document).ready(function() {
   
   loadtweets();
 
+  //Top left button click handler
   $(".nav-write-new").on("click", function() {
     if ($(".new-tweet").is(":hidden")){
       $(".new-tweet").slideDown('fast');
@@ -90,6 +96,7 @@ $(document).ready(function() {
     }
   });
 
+  //New tweet submission handler
   $("#new-tweet-form").on("submit", function() {
     event.preventDefault();
 
@@ -97,11 +104,15 @@ $(document).ready(function() {
     const action = $("#new-tweet-form").attr("action");
 
     if (tweetText.length > 140) {
-      alert("Your tweet exceeds the character limit");
+      $(".tweet-error").text("Character limit exceeded!");
+      $(".tweet-error").slideDown('fast');
     } else if (tweetText === "") {
-      alert("Your tweet is empty");
+      $(".tweet-error").text("Your tweet is empty!");
+      $(".tweet-error").slideDown('fast');
     } else {
       $.post(action, $(this).serialize()).then(function() {
+        $(".tweet-error").text("");
+        $(".tweet-error").slideUp('fast');
         $("#tweetText").val("");
         $.get("/tweets/").then(function(data) {
           renderTweets(data.splice(data.length-1));

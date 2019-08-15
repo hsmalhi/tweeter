@@ -25,6 +25,20 @@ textarea::placeholder {
   padding: 3px 13px;
 }
 
+.tweet-error {
+  display: inline-block;
+  margin-bottom: 15px;
+  padding: 5px 20px;
+  width: 100%;
+  background-color: #f44336;
+  color: #ffffff;
+  font-size: 0.7em;
+}
+
+.hidden {
+  display: none;
+}
+
 .counter{
   font-family: "Bungee", sans-serif;
   float: right;

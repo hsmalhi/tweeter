@@ -14,4 +14,9 @@ A simple single-page, device responsive AJAX-based Twitter clone that uses jQuer
 - Express
 - Node 5.10.x or above
 
-## 
+## Screenshots
+
+!["Screenshot of the tweet box and tweets on a desktop screen"](https://github.com/hsmalhi/tweeter/blob/master/docs/tweet-box.png)
+!["Screenshot of some more tweets"](https://github.com/hsmalhi/tweeter/blob/master/docs/desktop-view.png)
+!["Screenshot of the app as viewed by a tablet"](https://github.com/hsmalhi/tweeter/blob/master/docs/tablet-view.png)
+!["Screenshot of more tweets with the top nav bar showing differently"](https://github.com/hsmalhi/tweeter/blob/master/docs/tablet-view-2.png)

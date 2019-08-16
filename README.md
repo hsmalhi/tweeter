@@ -13,6 +13,11 @@ A simple single-page, device responsive AJAX-based Twitter clone that uses jQuer
 
 - Express
 - Node 5.10.x or above
+- body-parser
+- path
+- serve-favicon
+- chance
+- md5
 
 ## Screenshots
 

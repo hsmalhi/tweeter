@@ -7,10 +7,15 @@ article {
 
 article:hover {
   box-shadow: 10px 10px #9398e460; 
+  font-weight: bolder;
 }
 
 article:hover > header > .handle{
   display: block;
+}
+
+article:hover > footer {
+  font-weight: lighter;
 }
 
 article .tweet-body{
@@ -49,7 +54,7 @@ article .handle {
   display: none;
 }
 
-article footer {
+article > footer {
   border: 0;
   border-top: 5px solid #5a5a5a;
   padding: 10px 25px;
@@ -58,10 +63,11 @@ article footer {
   font-size: 75%;
 }
 
-article footer span:nth-child(2){
-  color: #303470;
+article > footer > span > i{
+  padding: 0.2em;
+  color: transparent;
 }
 
-article footer span i{
-  padding: 0.2em;
+article:hover > footer > span > i{
+  color: #303470;
 }

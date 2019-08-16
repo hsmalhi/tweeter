@@ -8,8 +8,7 @@
 const elapsed = function(date) {
   //Get the elapsed time in seconds
   const elapsedSeconds = (new Date() - date) / 1000;
-  console.log(date);
-  let result = ""
+  let result = "";
   if (elapsedSeconds < 60) {
     result = (Math.round(elapsedSeconds) + " second");
   } else if (elapsedSeconds / 60 < 60) {
@@ -37,7 +36,7 @@ const escape = function(str) {
 //Alters the nav background. This function is called upon scrolling or resizing the window. Initially thought that this would not need to be called upon resizing, but resizing was not affecting the nav bar to change colour if I was setting up the scroll handler.
 const alterNavBackground = function() {
   if (window.matchMedia("(max-width: 1023px)").matches) {
-    if ($(window).scrollTop() >= 200) {
+    if ($(window).scrollTop() >= 100) {
       $("nav").css("background", "#303470");
     } else {
       $("nav").css("background", "transparent");
@@ -85,15 +84,17 @@ const renderTweets = function(data) {
   // loops through tweets
   // calls createTweetElement for each tweet
   // takes return value and appends it to the tweets container
-  let result = ``;
   for (const tweetData of data) {
     $("#tweets-container").prepend(createTweetElement(tweetData));
   }
-  return result;
 };
 
 //Loads initial tweets and sets up event handlers to respond to user input
 $(document).ready(function() {
+  //Initially hide the new tweet box and second toggle button.
+  $(".new-tweet").fadeOut(0);
+  $(".fa-chevron-circle-up").fadeOut(0);
+
   const loadtweets = function() {
     $.get("/tweets/")
       .then(function(data) {
@@ -121,6 +122,7 @@ $(document).ready(function() {
   $(".fa-chevron-circle-up").on("click", function() {
     $(".new-tweet").slideDown("fast");
     $("#tweetText").focus();
+    $('html,body').animate({scrollTop:0}, 200);
   });
 
   //New tweet submission handler
@@ -149,7 +151,6 @@ $(document).ready(function() {
             })
             .fail(function() {
               alert("An error occurred while fetching tweets.");
-              console.log(error.status + " " + error.statusText);
             });
         })
         .fail(function() {
@@ -163,7 +164,7 @@ $(document).ready(function() {
     alterNavBackground();
 
     //This takes care of displaying either the write new tweet button that is in the nav bar or the bottom toggle button
-    if ($(window).scrollTop() >= 200) {
+    if ($(window).scrollTop() >= 50) {
       $(".nav-write-new").fadeOut(200);
       $(".fa-chevron-circle-up").fadeIn(200);
     } else {

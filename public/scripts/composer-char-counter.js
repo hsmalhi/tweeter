@@ -13,7 +13,7 @@ $(document).ready(function() {
     }
 
     //Resizes the text box based on user input
-    this.style.cssText = 'height:auto; padding:2';
+    this.style.cssText = 'height:auto; padding:6px';
     this.style.cssText = 'height:' + this.scrollHeight + 'px';
   });
 });

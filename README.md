@@ -28,5 +28,5 @@ Screenshot of the app as viewed by a tablet
 !["Screenshot of the app as viewed by a tablet"](https://github.com/hsmalhi/tweeter/blob/master/docs/tablet-view.png)
 
 
-Screenshot of more tweets with the top nav bar showing differently
+Screenshot of more tweets in tablet view with the top nav bar showing differently
 !["Screenshot of more tweets in tablet view with the top nav bar showing differently"](https://github.com/hsmalhi/tweeter/blob/master/docs/tablet-view-2.png)

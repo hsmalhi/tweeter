@@ -8,15 +8,23 @@
 const elapsed = function(date) {
   //Get the elapsed time in seconds
   const elapsedSeconds = (new Date() - date) / 1000;
+  console.log(date);
+  let result = ""
   if (elapsedSeconds < 60) {
-    return Math.round(elapsedSeconds) + " seconds";
+    result = (Math.round(elapsedSeconds) + " second");
   } else if (elapsedSeconds / 60 < 60) {
-    return Math.round(elapsedSeconds / 60) + " minutes";
+    result = Math.round(elapsedSeconds / 60) + " minute";
   } else if (elapsedSeconds / 3600 < 24) {
-    return Math.round(elapsedSeconds / 3600) + " hours";
+    result = Math.round(elapsedSeconds / 3600) + " hour";
   } else {
-    return Math.round(elapsedSeconds / 86400) + " days";
+    result = Math.round(elapsedSeconds / 86400) + " day";
   }
+  
+  const str = result.split(" ");
+  if (str[0] > 1) {
+    return result + 's';
+  }
+  return result;
 };
 
 //Used to sanitize user input
@@ -29,7 +37,7 @@ const escape = function(str) {
 //Alters the nav background. This function is called upon scrolling or resizing the window. Initially thought that this would not need to be called upon resizing, but resizing was not affecting the nav bar to change colour if I was setting up the scroll handler.
 const alterNavBackground = function() {
   if (window.matchMedia("(max-width: 1023px)").matches) {
-    if ($(window).scrollTop() >= 380) {
+    if ($(window).scrollTop() >= 200) {
       $("nav").css("background", "#303470");
     } else {
       $("nav").css("background", "transparent");
@@ -113,7 +121,6 @@ $(document).ready(function() {
   $(".fa-chevron-circle-up").on("click", function() {
     $(".new-tweet").slideDown("fast");
     $("#tweetText").focus();
-    //$("#tweetText").scrollIntoView();
   });
 
   //New tweet submission handler
@@ -156,7 +163,7 @@ $(document).ready(function() {
     alterNavBackground();
 
     //This takes care of displaying either the write new tweet button that is in the nav bar or the bottom toggle button
-    if ($(window).scrollTop() >= 450) {
+    if ($(window).scrollTop() >= 200) {
       $(".nav-write-new").fadeOut(200);
       $(".fa-chevron-circle-up").fadeIn(200);
     } else {
